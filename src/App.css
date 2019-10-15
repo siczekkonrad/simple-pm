@@ -1,0 +1,105 @@
+.App {
+  color: #09d3ac;
+  font-size: calc(10px + 2vmin);
+}
+
+.Menu {
+  list-style: none;
+  padding-left: 0px;
+  margin-left:0;
+}
+
+.Menu a {
+  color: #09d3ac;
+  text-decoration: none;
+  margin: 10px;
+}
+
+.Menu a:hover {
+  color: aquamarine;
+}
+
+.loginArea {
+  padding: 20px;
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loginArea__heading {
+  text-align: center;
+}
+
+.loginForm {
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.loginForm input {
+  border: none;
+  border-bottom : 2px solid #09d3ac;
+  padding: 10px;
+  background-color: #282c34;
+  outline: none;
+  color: #09d3ac;
+  font-size: 14px;
+  min-width: 300px;
+}
+
+.loginForm button {
+  background: #09d3ac;
+  color: #282c34;
+  border: 2px solid #09d3ac;
+  font-size: 14px;
+  margin-left: 20px;
+  padding: 10px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s linear;
+  display: flex;
+  width: 100%;
+  margin-top: 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+.loginForm button:hover {
+  background: #282c34;
+  color: #09d3ac;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.header .userBar {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-shrink: 0;
+  align-items:center;
+  margin: 10px;
+}
+
+.header .userBar .userName {
+  margin-right: 20px;
+}
+
+.header .userBar .logoutButton {
+  border: 2px solid #09d3ac;
+  background: #282c34;
+  outline: none;
+  color: #09d3ac;
+  font-size: 14px;
+}
+
+.container {
+  margin: 10px;
+}
