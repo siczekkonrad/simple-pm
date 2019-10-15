@@ -8,7 +8,6 @@ const Header = (props) => {
 
     return (
         <header className='header'>
-
             {isLogged && user.length > 0 && user !== '' ?
                 <>
                 <Menu/>
