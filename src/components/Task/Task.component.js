@@ -31,11 +31,6 @@ const Task = (props) => {
         </div>
     )
 }
-// const mapStateToProps = state => {
-//     return {
-//         tasks: state.tasks
-//     }
-// }
 
 const mapDispatchToProps = dispatch => {
     return {
