@@ -98,8 +98,64 @@
   outline: none;
   color: #09d3ac;
   font-size: 14px;
+  cursor: pointer;
+}
+
+.header .userBar .logoutButton:hover {
+  transition: all 0.3s linear;
+  background-color: #09d3ac;
+  color: #282c34;
 }
 
 .container {
   margin: 10px;
+}
+.TaskList {
+  margin-top: 30px;
+}
+.Task {
+  background-color: #09d3ac;
+  color: #282c34;
+  padding: 20px;
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+
+.Task h4 {
+  margin: 0;
+}
+
+.Task.active {
+  border-top: 4px solid greenyellow;
+}
+
+.Task__button {
+  background-color: #09d3ac;
+  color: #282c34;
+  font-weight: 300;
+  border: none;
+  padding: 0;
+  margin-right: 10px;
+}
+
+
+.TaskForm {
+  display: flex;
+  max-width: 300px;
+  background-color: #09d3ac;
+  padding: 20px;
+}
+
+.TaskForm__input {
+  background-color: #09d3ac;
+  border: none;
+  border-bottom: 2px solid #282c34;
+  margin-right: 20px;
+  min-width: 200px;
+}
+
+.TaskForm__button {
+  background-color: #282c34;
+  border: 2px solid #282c34;
+  color: #09d3ac;
 }

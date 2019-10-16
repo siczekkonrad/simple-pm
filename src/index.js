@@ -9,14 +9,22 @@ import * as serviceWorker from './serviceWorker';
 const INITIAL_STATE = {
     user: '',
     isLogged: false,
+    tasks: [],
 };
 
 const reducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
         case 'LOGIN':
-            return {...state, user: action.payload, isLogged: true}
+            return {...state,
+                    user: action.payload,
+                    isLogged: true};
         case 'LOGOUT':
-            return {...state, user: '', isLogged: false}
+            return {...state,
+                    user: '',
+                    isLogged: false};
+        case 'ADD_TASK':
+            return {...state,
+                    tasks: state.tasks.concat([action.payload])};
         default:
             return state
     }
