@@ -27,7 +27,7 @@ const TaskList = (props) => {
                     return <Task markDone={markDone}
                                  removeTask={removeTask}
                                  archiveTask={archiveTask}
-                                 taskName={item.name}
+                                 taskName={item.title}
                                  key={index}
                     />
                 })}
