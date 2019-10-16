@@ -12,10 +12,13 @@ const TaskForm = (props) => {
         setTask(e.target.value);
 
     }
+
     const submitTask = (task) => {
         props.addTask({
             title: task,
-            id: new Date() + task
+            id: new Date() + task,
+            isDone: false,
+            isArchived: false,
         })
         resetInput()
     }
@@ -27,7 +30,9 @@ const TaskForm = (props) => {
                    onChange={addTask}/>
             <button className='TaskForm__button'
                 onClick={() => {
-                    submitTask(task)}}
+                    if(task !== '') {
+                        submitTask(task)
+                    }}}
             >Add task</button>
         </div>
     )

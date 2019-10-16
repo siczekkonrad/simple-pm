@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore} from "redux";
+import { createStore } from "redux";
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -25,6 +25,30 @@ const reducer = (state = INITIAL_STATE, action) => {
         case 'ADD_TASK':
             return {...state,
                     tasks: state.tasks.concat([action.payload])};
+        case 'REMOVE_TASK':
+            return {...state,
+                    tasks: state.tasks.filter((item, index) => {
+                      return item.id !== action.payload
+                    })
+            }
+        case 'TOGGLE_DONE':
+            return {...state,
+                    tasks: state.tasks.map((item) => {
+                        if (item.id === action.payload.id) {
+                            item = {...item, isDone: action.payload.isDone}
+                        }
+                        return item;
+                    })
+            }
+        case 'ARCHIVE_TASK':
+            return {...state,
+                tasks: state.tasks.map((item) => {
+                    if (item.id === action.payload.id) {
+                        item = {...item, isArchived: action.payload.isArchived}
+                    }
+                    return item;
+                })
+            }
         default:
             return state
     }
