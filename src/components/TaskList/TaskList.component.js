@@ -1,23 +1,25 @@
-import React, { useState, useEffect } from 'react';
+import React  from 'react';
 import Task from "../Task/Task.component";
-import TaskForm from "../TaskForm/TaskForm.component";
 import { connect } from 'react-redux';
 const TaskList = (props) => {
-
 
     const tasksList = props.tasks;
 
     return (
         <div className='TaskList__wrapper'>
-            <TaskForm/>
+
             <div className='TaskList'>
+                <h3>{props.type}</h3>
                 {tasksList.map( (item, index) => {
-                    return <Task taskName={item.title}
-                                 key={index}
-                                 toDoitemId={item.id}
-                                 isDone={item.isDone}
-                                 isArchived={item.isArchived}
-                    />
+                    const type = props.type;
+                    if(item.list === type) {
+                        return <Task taskName={item.title}
+                                     key={index}
+                                     toDoitemId={item.id}
+                                     isDone={item.isDone}
+                                     isArchived={item.isArchived}
+                        />
+                    }
                 })}
             </div>
         </div>

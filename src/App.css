@@ -112,7 +112,15 @@
 }
 .TaskList {
   margin-top: 30px;
+  border-right: 1px solid #09d3ac;
+  padding: 0 20px;
+  min-width: 250px;
+  min-height: 50vh;
 }
+.TaskList h3 {
+  text-align: center;
+}
+
 .Task {
   background-color: #09d3ac;
   color: #282c34;
@@ -157,7 +165,7 @@
 
 .TaskForm {
   display: flex;
-  max-width: 300px;
+  max-width: 400px;
   background-color: #09d3ac;
   padding: 20px;
 }
@@ -170,8 +178,22 @@
   min-width: 200px;
 }
 
+.TaskForm__radio {
+  color: #282c34;
+  margin-right: 20px;
+}
+
 .TaskForm__button {
   background-color: #282c34;
   border: 2px solid #282c34;
   color: #09d3ac;
+}
+
+.TaskLists__wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.TaskList__wrapper:last-child .TaskList {
+  border-right: none;
 }

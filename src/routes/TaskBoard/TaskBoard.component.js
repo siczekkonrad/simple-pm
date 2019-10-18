@@ -1,10 +1,16 @@
 import React from 'react';
 import TaskList from "../../components/TaskList/TaskList.component";
+import TaskForm from "../../components/TaskForm/TaskForm.component";
 
 const TaskBoard = () => (
     <div className='container'>
         <h1>TasksBoard</h1>
-        <TaskList />
+        <TaskForm />
+        <div className='TaskLists__wrapper'>
+            <TaskList type='active'/>
+            <TaskList type='done'/>
+            <TaskList type='archived'/>
+        </div>
     </div>
 )
 

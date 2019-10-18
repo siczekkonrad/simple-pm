@@ -17,14 +17,14 @@ const Task = (props) => {
                         onClick={() => props.removeTask(todoItemId)}
                     >Remove</button>
                     <button className='Task__button'
-                        onClick={() => props.archiveTask({id: todoItemId, isArchived: !isItemArchived})}
+                        onClick={() => props.archiveTask({ id: todoItemId, isArchived: !isItemArchived })}
                     >
-                        {isItemArchived === true ? 'Unarchive' : 'Archive'}
+                        { isItemArchived === true ? 'Unarchive' : 'Archive' }
                     </button>
                     <button className='Task__button'
                         onClick={() =>
                             props.toggleDone({id: todoItemId, isDone: !isItemDone})}
-                    >{isItemDone === true ? 'Unmark' : 'Done'}
+                    > { isItemDone === true ? 'Unmark' : 'Done' }
                     </button>
                 </div>
             </div>

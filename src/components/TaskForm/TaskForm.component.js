@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 const TaskForm = (props) => {
 
     const [task, setTask] = useState('');
+    const [listType, setType] = useState('');
+
     const resetInput = () => {
         setTask('')
     }
@@ -17,6 +19,7 @@ const TaskForm = (props) => {
         props.addTask({
             title: task,
             id: new Date() + task,
+            list: listType,
             isDone: false,
             isArchived: false,
         })
@@ -25,9 +28,16 @@ const TaskForm = (props) => {
 
     return (
         <div className='TaskForm'>
-            <input className='TaskForm__input'
+            <div className='TaskForm__text'>
+                <input className='TaskForm__input'
                    value={task}
                    onChange={addTask}/>
+            </div>
+            <div className='TaskForm__radio'>
+                <input type='radio' name='list' value='active' onChange={(e) => setType(e.target.value)}/>Active <br/>
+                <input type='radio' name='list' value='done' onChange={(e) => setType(e.target.value)}/>Done <br/>
+                <input type='radio' name='list' value='archived' onChange={(e) => setType(e.target.value)}/>Archived <br/>
+            </div>
             <button className='TaskForm__button'
                 onClick={() => {
                     if(task !== '') {
