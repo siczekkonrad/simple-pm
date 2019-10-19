@@ -35,7 +35,7 @@ const reducer = (state = INITIAL_STATE, action) => {
             return {...state,
                     tasks: state.tasks.map((item) => {
                         if (item.id === action.payload.id) {
-                            item = {...item, isDone: action.payload.isDone}
+                            item = {...item, isDone: action.payload.isDone, list: action.payload.list, isArchived: false}
                         }
                         return item;
                     })

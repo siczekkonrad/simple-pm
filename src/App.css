@@ -111,19 +111,22 @@
   margin: 10px;
 }
 .TaskList {
+  margin: 0 15px;
   margin-top: 30px;
   border-right: 1px solid #09d3ac;
-  padding: 0 20px;
+  padding: 20px;
   min-width: 250px;
   min-height: 50vh;
+  background-color: #09d3ac;
 }
 .TaskList h3 {
   text-align: center;
+  color: #282c34;
 }
 
 .Task {
-  background-color: #09d3ac;
-  color: #282c34;
+  background-color: #282c34;
+  color: #09d3ac;
   padding: 20px;
   max-width: 200px;
   margin-bottom: 20px;
@@ -154,7 +157,7 @@
 
 .Task__button {
   background-color: transparent;
-  color: #282c34;
+  color: #09d3ac;
   font-weight: 300;
   border: none;
   padding: 0;

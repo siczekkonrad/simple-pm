@@ -8,22 +8,36 @@ const Task = (props) => {
     const todoItemId = props.toDoitemId;
     const isItemArchived = props.isArchived;
 
+    const toggleDone = () => {
+        props.toggleDone({
+            id: todoItemId,
+            isDone: !isItemDone,
+            isArchived: false,
+            list: 'done' })
+    }
+
+    const archiveTask = () => {
+        props.archiveTask({ id: todoItemId,
+            isArchived: !isItemArchived,
+            list: 'archived' })
+    }
+
     return (
-        <div className={`Task ${isItemDone === true ? 'done' : 'unDone'} ${isItemArchived === true ? 'archive': ''}`}>
+        <div className={`Task ${isItemDone === true ? 'done' : '' } ${ isItemArchived === true ? 'archive': '' }`}>
             <div className='TaskWrapper'>
                 <h4 className='Task__title'>{name}</h4>
                 <div className='Task__actions'>
                     <button className='Task__button'
-                        onClick={() => props.removeTask(todoItemId)}
+                        onClick={() => props.removeTask( todoItemId )}
                     >Remove</button>
-                    <button className='Task__button'
-                        onClick={() => props.archiveTask({ id: todoItemId, isArchived: !isItemArchived, list: 'archived' })}
+                    {isItemArchived === false ? <button className='Task__button'
+                                                        onClick={archiveTask}
                     >
-                        { isItemArchived === true ? 'Unarchive' : 'Archive' }
-                    </button>
+                        Archive
+                    </button> : ''}
+
                     <button className='Task__button'
-                        onClick={() =>
-                            props.toggleDone({id: todoItemId, isDone: !isItemDone, list: 'done'})}
+                        onClick={toggleDone}
                     > { isItemDone === true ? 'Unmark' : 'Done' }
                     </button>
                 </div>

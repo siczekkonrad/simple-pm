@@ -7,7 +7,7 @@ const TaskBoard = () => (
         <h1>TasksBoard</h1>
         <TaskForm />
         <div className='TaskLists__wrapper'>
-            <TaskList type='active'/>
+            <TaskList type='backlog'/>
             <TaskList type='done'/>
             <TaskList type='archived'/>
         </div>

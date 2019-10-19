@@ -46,7 +46,7 @@ const TaskForm = (props) => {
                    onChange={addTask}/>
             </div>
             <div className='TaskForm__radio'>
-                <input type='radio' name='list' value='active' required='required' onChange={(e) => setType(e.target.value)}/>Active <br/>
+                <input type='radio' name='list' value='backlog' required='required' onChange={(e) => setType(e.target.value)}/>Backlog <br/>
                 <input type='radio' name='list' value='done' required='required' onChange={(e) => setType(e.target.value)}/>Done <br/>
                 <input type='radio' name='list' value='archived' required='required' onChange={(e) => setType(e.target.value)}/>Archived <br/>
             </div>
