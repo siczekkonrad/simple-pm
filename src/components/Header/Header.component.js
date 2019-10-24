@@ -14,7 +14,7 @@ const Header = (props) => {
                          <div className='userName'>
                             { loggedUser }
                         </div>
-                        <button className='logoutButton' onClick={() => props.logout()}>Logout</button>
+                        <button className='logoutButton' onClick={() => props.logout(loggedUser)}>Logout</button>
                     </div>
                 </>: null
             }
@@ -31,7 +31,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        logout: () => dispatch({type: 'LOGOUT'})
+        logout: (loggedUser) => dispatch({type: 'LOGOUT', payload: loggedUser})
     }
 }
 

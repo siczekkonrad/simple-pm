@@ -6,7 +6,7 @@ const Home = (props) => {
 
     const loggedUser = props.loggedUser;
 
-    if( loggedUser === false ){
+    if( loggedUser === '' ){
         return (
             <Redirect to='/' />
         )

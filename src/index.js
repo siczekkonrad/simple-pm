@@ -17,11 +17,24 @@ const reducer = (state = INITIAL_STATE, action) => {
             }
         case 'LOGIN':
             return {...state,
-                    loggedUser: action.payload};
-        // case 'LOGOUT':
-        //     return {...state,
-        //             user: '',
-        //             isLogged: false};
+                    users: state.users.map((item) => {
+                        if ( item.user === action.payload) {
+                            item = {...item, loggedIn: true}
+                        }
+                        return item;
+                    }),
+                    loggedUser: action.payload
+            };
+        case 'LOGOUT':
+            return {...state,
+                users: state.users.map((item) => {
+                    if ( item.user === action.payload) {
+                        item = {...item, loggedIn: false}
+                    }
+                    return item;
+                }),
+                loggedUser: ''
+            };
         // case 'ADD_TASK':
         //     return {...state,
         //             tasks: state.tasks.concat([action.payload])};
