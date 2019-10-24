@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 
 const Home = (props) => {
 
-    const isLogged = props.isLogged;
+    const loggedUser = props.loggedUser;
 
-    if( isLogged === false ){
+    if( loggedUser === false ){
         return (
             <Redirect to='/' />
         )
@@ -23,8 +23,8 @@ const Home = (props) => {
 
 const mapStateToProps = state => {
     return {
-        user: state.user,
-        isLogged: state.isLogged
+        users: state.users,
+        loggedUser: state.loggedUser
     }
 }
 

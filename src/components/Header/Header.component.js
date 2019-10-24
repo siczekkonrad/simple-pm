@@ -3,17 +3,16 @@ import { connect } from 'react-redux';
 import Menu from "../Menu/Menu.component";
 
 const Header = (props) => {
-    const isLogged = props.isLogged;
-    const user = props.user;
+    const loggedUser = props.loggedUser;
 
     return (
         <header className='header'>
-            {isLogged && user.length > 0 && user !== '' ?
+            {loggedUser !== '' ?
                 <>
                 <Menu/>
                     <div className='userBar'>
                          <div className='userName'>
-                            {user}
+                            { loggedUser }
                         </div>
                         <button className='logoutButton' onClick={() => props.logout()}>Logout</button>
                     </div>
@@ -25,8 +24,8 @@ const Header = (props) => {
 
 const mapStateToProps = state => {
     return {
-        user : state.user,
-        isLogged: state.isLogged
+        users : state.users,
+        loggedUser: state.loggedUser,
     }
 }
 
