@@ -11,11 +11,22 @@ const INITIAL_STATE = {users:[], loggedUser: ''};
 const reducer = (state = INITIAL_STATE, action) => {
     switch(action.type) {
         case 'REGISTER_USER':
+            if(localStorage.getItem('users')) {
+                const usersList = localStorage.getItem('users');
+                const newList = JSON.parse(usersList);
+                newList.push(action.payload);
+                localStorage.setItem('users', JSON.stringify(newList));
+            } else {
+                const users = state.users;
+                localStorage.setItem('users', JSON.stringify(users));
+            }
+
             return {
                 ...state,
-                users: state.users.concat([action.payload])
+                users: state.users.concat(action.payload)
             }
         case 'LOGIN':
+            
             return {...state,
                     users: state.users.map((item) => {
                         if ( item.user === action.payload) {

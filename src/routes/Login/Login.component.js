@@ -3,10 +3,14 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 const Login = (props) => {
 
+    const [ userRegistered, setUserRegistered ] = useState('');
     const [ user, setUser ] = useState('');
     const [ password, setPassword ] = useState('')
     const setUserName = e => {
         setUser(e.target.value);
+    };
+    const setUserRegisteredName = e => {
+        setUserRegistered(e.target.value);
     };
     const setUserPassword = e => {
         setPassword(e.target.value);
@@ -26,7 +30,7 @@ const Login = (props) => {
                                 <input className='loginForm__input' placeholder='password' value={password} onChange={setUserPassword}/>
                                 <button onClick={() => {
                                     if(user !== '') {
-                                        props.register({user: user, password: password})
+                                        props.register({user: user, password: password, loggedIn:false})
                                     }
                                 }}>Login</button>
                             </div>
@@ -36,10 +40,10 @@ const Login = (props) => {
                             <h3>Alredy registered? Sign in</h3>
                             <h1 className='loginArea__heading'>Sign in</h1>
                             <div className='loginForm'>
-                                <input className='loginForm__input' placeholder='username' value={user} onChange={setUserName}/>
+                                <input className='loginForm__input' placeholder='username' value={userRegistered} onChange={setUserRegisteredName}/>
                                 <button onClick={() => {
-                                    if(user !== '') {
-                                        props.login(user)
+                                    if(userRegistered !== '') {
+                                        props.login(userRegistered)
                                     }
                                 }}>Login</button>
                             </div>
@@ -61,7 +65,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        login: (user) => dispatch({type: 'LOGIN', payload: user}),
+        login: (userRegistered) => dispatch({type: 'LOGIN', payload: userRegistered}),
         register: (user) => dispatch({type: 'REGISTER_USER', payload: user})
     }
 }
